@@ -1,0 +1,70 @@
+{
+  "name": "cash-register",
+  "version": "1.0.0",
+  "description": "Cash Register POS System",
+  "main": "src/main/index.js",
+  "scripts": {
+    "dev": "vite --config src/renderer/vite.config.js",
+    "build": "vite build --config src/renderer/vite.config.js",
+    "preview": "vite preview --config src/renderer/vite.config.js --port 3000",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev:manual": "npm run dev",
+    "electron:manual": "electron .",
+    "devP": "concurrently \"vite\" \"wait-on http://localhost:3000 && electron .\"",
+    "buildP": "vite build",
+    "previewP": "vite preview"
+  },
+  "keywords": [
+    "electron",
+    "pos",
+    "cash-register"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "better-sqlite3": "^9.6.0",
+    "electron-squirrel-startup": "^1.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.6.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "concurrently": "^9.2.1",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3",
+    "react-scripts": "^5.0.1",
+    "vite": "^7.1.9",
+    "wait-on": "^9.0.1"
+  },
+  "build": {
+    "appId": "com.cashregister.app",
+    "productName": "Cash Register",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}
